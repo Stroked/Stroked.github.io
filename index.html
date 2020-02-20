@@ -1,35 +1,47 @@
-Stroked/<html><head>
-    <title>Observable Embedded Cell Example</title>
+<html><head>
+    <title>Ajay Phogat</title>
   </head>
   <body class="vsc-initialized" style="">
-    <h1>Observable Embedded Cell Example</h1>
-    <p>From: <a href="https://observablehq.com/@observablehq/downloading-and-embedding-notebooks">Downloading and Embedding Notebooks</a>.</p>
-    <br><br>
-    <p>Embedded at the current version:</p>
-    <div id="observablehq-6e5586f4"><div class="observablehq"><svg width="100" height="100">
-  <circle cx="40" cy="40" r="40" fill="green" style="opacity: 0.25;"></circle> 
-  <circle cx="50" cy="50" r="40" fill="red" style="opacity: 0.25;"></circle>  
-  <circle cx="60" cy="60" r="40" fill="blue" style="opacity: 0.25;"></circle> 
-</svg></div></div>
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@observablehq/downloading-and-embedding-notebooks.js?v=3";
-const inspect = Inspector.into("#observablehq-6e5586f4");
-(new Runtime).module(define, name => (name === "graphic") && inspect());
-</script>
-    <br><br>
-    <p>Embedded at <a href="https://observablehq.com/d/c2a04e7b9a9d03bb@1046">an older version (1046)</a> of the notebook:</p>
-    <div id="observablehq-6da5969b"><div class="observablehq"><svg width="100" height="100">
-  <circle cx="40" cy="40" r="40" fill="red" style="opacity: 0.25;"></circle> 
-  <circle cx="50" cy="50" r="40" fill="yellow" style="opacity: 0.25;"></circle>  
-  <circle cx="60" cy="60" r="40" fill="red" style="opacity: 0.25;"></circle> 
-</svg></div></div>
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@observablehq/downloading-and-embedding-notebooks@1046.js?v=3";
-const inspect = Inspector.into("#observablehq-6da5969b");
-(new Runtime).module(define, name => (name === "graphic") && inspect());
-</script>
+       <div id="sketches"></div>
+    </div>
+    <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import notebook from "https://api.observablehq.com/@stroked/portrait-gallery.js?v=3";
   
+   new Runtime().module(notebook, name => {
 
-<domflags id="domflags-root"></domflags></body></html>
+      if (name === "DRAWINGS") {
+         return new Inspector(document.querySelector("#sketches"));
+  }
+   
+});
+  
+</script>
+
+<style>
+   body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+#sketches{
+      --width: 100vw;
+
+  height:90%;
+  margin:auto 0;
+
+  position:absolute;
+  top:0;
+  bottom:-11px;
+  width:100%;
+left:-11px;
+  right:11px;
+  border:double black 11px;
+
+}
+ 
+    
+    </style>
+
+    </body>
+</html>
